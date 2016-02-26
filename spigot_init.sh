@@ -17,19 +17,17 @@ if [ ! -f /$SPIGOT_HOME/spigot.jar ]; then
   cd /$SPIGOT_HOME/build
   wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
   HOME=/$SPIGOT_HOME/build java -jar BuildTools.jar
-  cp /$SPIGOT_HOME/build/Spigot/Spigot-Server/target/spigot-1.8*.jar /$SPIGOT_HOME/spigot.jar
-
-  #accept eola
+  cp /$SPIGOT_HOME/build/Spigot/Spigot-Server/target/spigot-*.jar /$SPIGOT_HOME/spigot.jar
+  
+  rm -rf $SPIGOT_HOME/build
+  
+  #accept eula
   echo "eula=true" > /$SPIGOT_HOME/eula.txt
 
 fi
 
-# chance owner to minecraft
-chown -R minecraft.minecraft /$SPIGOT_HOME/
-
-
 cd /$SPIGOT_HOME/
-su - minecraft -c 'java -Xms512M -Xmx1536M -XX:MaxPermSize=128M -jar spigot.jar'
+java -Xms$XMS -Xmx$XMX -XX:MaxPermSize=$PERM_SIZE -jar spigot.jar
 
 # fallback to root and run shell if spigot don't start/forced exit
 bash

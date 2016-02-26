@@ -13,7 +13,7 @@ Due to leagal reasons you can build it but not redistribute the finished jar.
 
 To run the lastest stable version of this docker image run
 
-	docker run -ti -p 25565:25565 -e EULA=true nimmis/spigot
+	docker run -ti -p 25565:25565 -e EULA=true -e XMX={somevalue} -e XMS={somevalue} -e PERM_SIZE={somevalue}  krishath/spigot
 
 the parameter
 
@@ -84,7 +84,11 @@ The syntax for it is
 
 To attach the minecraft directory in the container to directory /home/nimmis/mc-srv you add
 
-	-v /home/nimmis/mc-srv:/minecraft
+	-v /home/nimmis/mc-srv:/home/minecraft
+
+## Upgrading the server
+
+If you would like to upgrade the server, just remove `spigot.jar` from the `$SPIGOT_HOME` which is `/home/minecraft` and restart the container.
 
 ## Future features
 
