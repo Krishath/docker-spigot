@@ -1,0 +1,15 @@
+version: '2'
+services:
+    minecraft:
+        image: krishath/spigot
+        environment:
+            - XMS=512M
+            - XMX=1024M
+            - PERM_SIZE=512M
+            - EULA=true
+        ports:
+            - "25565:25565"
+        volumes:
+            - minecraftdata:/home/minecraft/
+volumes:
+    minecraftdata:
