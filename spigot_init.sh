@@ -16,7 +16,7 @@ if [ ! -f $SPIGOT_HOME/spigot.jar ] || [ [ $UPGRADE == [Tt]rue ] ]; then
   mkdir -p $SPIGOT_HOME/build
   cd $SPIGOT_HOME/build
   wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastStableBuild/artifact/target/BuildTools.jar
-  HOME=$SPIGOT_HOME/build java -jar BuildTools.jar
+  HOME=$SPIGOT_HOME/build java -jar BuildTools.jar $BUILD_ARGS
   cp $SPIGOT_HOME/build/Spigot/Spigot-Server/target/spigot-*.jar $SPIGOT_HOME/spigot.jar
   
   rm -rf $SPIGOT_HOME/build

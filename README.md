@@ -99,3 +99,7 @@ Set it to "true" to force a new build.
 	ADDITIONAL_ARGS
 
 Additional command line arguments which will be passed to the JVM when Spigot will be launched.
+	
+	BUILD_ARGS
+
+Additional command line arguments which will be passed when building Spigot.
