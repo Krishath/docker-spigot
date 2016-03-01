@@ -1,4 +1,4 @@
-## Minecraft server SPIGIT on Ubuntu 14.04 with openjava 1.8
+## Spigot server based on Ubuntu 14.04 with openjava 1.8
 
 This docker image builds and runs the spigot version of minecraft. 
 
@@ -13,7 +13,7 @@ Due to leagal reasons you can build it but not redistribute the finished jar.
 
 To run the lastest stable version of this docker image run
 
-	docker run -ti -p 25565:25565 -e EULA=true -e XMX={somevalue} -e XMS={somevalue} -e PERM_SIZE={somevalue}  krishath/spigot
+	docker run -ti -p 25565:25565 -e EULA=true -e XMX={somevalue} -e XMS={somevalue} krishath/spigot
 
 the parameter
 
@@ -88,9 +88,14 @@ To attach the minecraft directory in the container to directory /home/nimmis/mc-
 
 ## Upgrading the server
 
-If you would like to upgrade the server, just remove `spigot.jar` from the `$SPIGOT_HOME` which is `/home/minecraft` and restart the container.
+If you would like to upgrade the server, just remove `spigot.jar` from the `$SPIGOT_HOME` which is `/home/minecraft` or set the environment variable `UPGRADE` to `true` and restart the container.
 
-## Future features
+## Additional environmental variables
 
-This is the initial release of this, more features to come.....
+	UPGRADE
 
+Set it to "true" to force a new build.
+
+	ADDITIONAL_ARGS
+
+Additional command line arguments which will be passed to the JVM when Spigot will be launched.
